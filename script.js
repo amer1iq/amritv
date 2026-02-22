@@ -1,10 +1,23 @@
-// script.js
-// JavaScript for interactive features
+// Script for interactive features on the download page
 
-function displayCurrentTime() {
-    const now = new Date();
-    const formattedDate = now.toISOString().slice(0, 19).replace('T', ' ');
-    console.log('Current Date and Time (UTC):', formattedDate);
+let downloadCount = 0;
+
+// Function to simulate download
+function downloadFile() {
+    downloadCount++;
+    displaySuccessMessage();
+    updateDownloadCounter();
 }
 
-displayCurrentTime();
+// Function to display success message
+function displaySuccessMessage() {
+    alert('Download successful!');
+}
+
+// Function to update download counter
+function updateDownloadCounter() {
+    document.getElementById('downloadCounter').innerText = `Downloads: ${downloadCount}`;
+}
+
+// Event listener for the download button
+document.getElementById('downloadButton').addEventListener('click', downloadFile);
